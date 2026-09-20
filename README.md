@@ -7,6 +7,8 @@ FAIRE un export du chemin podman et podman-compose ???
 
 export PATH="$PATH:/c/Users/galeo/AppData/Local/Programs/Podman" ???
 
+--------------------------------------------------
+
 podman machine init
 podman machine start
 
@@ -20,5 +22,5 @@ exit
 
 DÉCOMMENTER CONTAINERFILE
 
-
+--------------------------------------------------
 
