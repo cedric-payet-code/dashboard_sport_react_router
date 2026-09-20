@@ -2,9 +2,20 @@ services:
   react:
     container_name: react
     build:
-      context: .
+      context: app/
     ports:
       - "5173:5173"
     volumes:
       - ./app:/app
       - /app/node_modules
+
+  api:
+    container_name: api
+    build:
+      context: P6JS/
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./P6JS:/app
+      - /app/node_modules
+    command: yarn dev

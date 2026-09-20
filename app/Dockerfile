@@ -8,7 +8,7 @@ RUN npm install -g corepack
 
 RUN corepack enable yarn
 
-COPY app/package.json app/yarn.lock ./
+COPY package.json yarn.lock ./
 
 RUN yarn install
 
