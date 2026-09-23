@@ -1,6 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import Login from "../pages/Login";
-import Dashboard from "../pages/Dashboard";
+import Profil from "../pages/Profil";
 import NotFound from "../pages/NotFound";
 import ProtectedRoute from "../components/ProtectedRoute";
 
@@ -13,10 +13,13 @@ export const router = createBrowserRouter([
     element: <ProtectedRoute />,
     children: [
       {
-        path: "/dashboard",
-        element: <Dashboard />
+        path: "/profil",
+        element: <Profil />
       }
-      // ajoute ici tes autres routes protégées (profil, etc.)
+      // {
+      //   path: "/dashboard",
+      //   element: 
+      // }
     ]
   },
   {

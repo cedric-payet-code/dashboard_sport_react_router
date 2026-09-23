@@ -13,7 +13,7 @@ export function AuthProvider({ children }) {
 
   const logout = () => {
     removeToken();
-    setTokenState(null);
+    setToken(null);
   };
 
   const value = {

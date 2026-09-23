@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
+import { login as loginApi } from "../services/api";
 
 export default function Login() {
   const [username, setUsername] = useState("");
@@ -15,17 +16,7 @@ export default function Login() {
     setError(null);
 
     try {
-      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/login`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ username, password })
-      });
-
-      if (!response.ok) {
-        throw new Error("Identifiants invalides");
-      }
-
-      const data = await response.json();
+      const data = await loginApi(username, password);
       login(data.token);
       navigate("/dashboard");
     } catch (err) {
