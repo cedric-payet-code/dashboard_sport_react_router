@@ -1,9 +1,9 @@
-import { createContext, useContext, useState, useEffect } from "react";
-import { useAuth } from "./AuthContext";
+import { createContext, useState, useEffect } from "react";
+import { useAuth } from "../hooks/useAuth";
 import { getUserActivity, getUserInfo } from "../services/api";
 import { calculateRestDays, calculateTotalCaloriesBurned } from "../utils/statsCalculator";
 
-const UserInfoContext = createContext(null);
+export const UserInfoContext = createContext(null);
 
 export function UserInfoProvider({ children }) {
   const { token, isAuthenticated } = useAuth();
@@ -59,12 +59,4 @@ export function UserInfoProvider({ children }) {
   };
 
   return <UserInfoContext.Provider value={value}>{children}</UserInfoContext.Provider>;
-}
-
-export function useUserInfo() {
-  const context = useContext(UserInfoContext);
-  if (!context) {
-    throw new Error("useUserInfo doit être utilisé à l'intérieur d'un UserInfoProvider");
-  }
-  return context;
 }

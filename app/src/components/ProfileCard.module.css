@@ -1,0 +1,41 @@
+.profileCard {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+
+  width: 100%;
+  padding: 20px;
+
+  border-radius: 10px;
+  background: white;
+}
+
+.profileCard img {
+  object-fit: cover;
+  flex-shrink: 0;
+
+  width: 100px;
+  height: 100px;
+  
+  border-radius: 10px;
+}
+
+.profileCardDetail {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  text-align: start;
+}
+
+.profileCardDetail h1 {
+  font-size: 22px;
+  font-weight: 500;
+
+  color: #111111;
+}
+
+.profileCardDetail p {
+  font-weight: 400;
+  color: #707070;
+}

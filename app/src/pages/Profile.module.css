@@ -1,0 +1,81 @@
+.profilePage {
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+}
+
+.myProfile {
+    padding: 20px;
+    border-radius: 10px;
+    background: white;
+}
+
+.myProfile hr {
+    margin: 20px 0;
+    background-color: #E7E7E7;
+    color: transparent;
+}
+
+.profileColumn,
+.statisticsColumn {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    width: 50%;
+}
+
+.myProfile h2,
+.myStatistics h2 {
+  font-size: 22px;
+  font-weight: 500;
+
+  color: #111111;
+}
+
+.myProfile p,
+.myStatistics p {
+  font-weight: 500;
+  color: #707070;
+}
+
+.statisticsCards {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.statisticsCard {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    width: calc(50% - 20px);
+    padding: 20px;
+
+    border-radius: 10px;
+
+    color: white;
+    background-color: #0B23F4;
+}
+
+.statisticsCard h3 {
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.statisticsCard span {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    gap: 4px;
+
+    font-size: 22px;
+    font-weight: 500;
+}
+
+.statisticsCard span p {
+    font-size: 16px;
+    color: #B6BDFC;
+}

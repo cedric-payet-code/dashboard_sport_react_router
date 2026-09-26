@@ -1,7 +1,7 @@
 // app/src/pages/Login.jsx
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../context/AuthContext";
+import { useAuth } from "../hooks/useAuth";
 import { login as loginApi } from "../services/api";
 
 export default function Login() {
@@ -18,7 +18,7 @@ export default function Login() {
     try {
       const data = await loginApi(username, password);
       login(data.token);
-      navigate("/dashboard");
+      navigate("/profil");
     } catch (err) {
       setError(err.message);
     }

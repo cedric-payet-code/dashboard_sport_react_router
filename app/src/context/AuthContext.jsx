@@ -1,7 +1,7 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useState } from "react";
 import { setToken, getToken, removeToken } from "../utils/auth";
 
-const AuthContext = createContext(null);
+export const AuthContext = createContext(null);
 
 export function AuthProvider({ children }) {
   const [token, setTokenState] = useState(getToken() || null);
@@ -13,7 +13,7 @@ export function AuthProvider({ children }) {
 
   const logout = () => {
     removeToken();
-    setToken(null);
+    setTokenState(null);
   };
 
   const value = {
@@ -24,12 +24,4 @@ export function AuthProvider({ children }) {
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
-}
-
-export function useAuth() {
-  const context = useContext(AuthContext);
-  if (!context) {
-    throw new Error("useAuth doit être utilisé à l'intérieur d'un AuthProvider");
-  }
-  return context;
 }

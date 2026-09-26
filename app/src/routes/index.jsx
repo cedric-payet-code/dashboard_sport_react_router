@@ -1,8 +1,9 @@
 import { createBrowserRouter } from "react-router-dom";
 import Login from "../pages/Login";
-import Profil from "../pages/Profil";
+import Profile from "../pages/Profile";
 import NotFound from "../pages/NotFound";
 import ProtectedRoute from "../components/ProtectedRoute";
+import Dashboard from "../pages/Dashboard";
 
 export const router = createBrowserRouter([
   {
@@ -14,12 +15,12 @@ export const router = createBrowserRouter([
     children: [
       {
         path: "/profil",
-        element: <Profil />
+        element: <Profile />
+      },
+      {
+        path: "/dashboard",
+        element: <Dashboard />
       }
-      // {
-      //   path: "/dashboard",
-      //   element: 
-      // }
     ]
   },
   {
