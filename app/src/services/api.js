@@ -33,7 +33,7 @@ export async function getUserInfo(token) {
   return response.json();
 }
 
-export async function getUserActivity(token, startWeek, endWeek) {
+export async function getUserActivity(startWeek, endWeek, token) {
 
     const response = await fetch(`${API_BASE_URL}/api/user-activity?startWeek=${startWeek}&endWeek=${endWeek}`, {
         headers: { Authorization: `Bearer ${token}` }
