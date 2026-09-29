@@ -1,7 +1,8 @@
 .profileCard {
   display: flex;
   flex-direction: row;
-  gap: 20px;
+  align-items: center;
+  justify-content: space-between;
 
   width: 100%;
   padding: 20px;
@@ -10,7 +11,18 @@
   background: white;
 }
 
-.profileCard img {
+.withTotalDistance {
+  padding: 30px 50px;
+  background: linear-gradient(0deg, rgba(255, 255, 255, 0) -8.38%, #FFFFFF 100%);
+}
+
+.profilSection {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.profilSection img {
   object-fit: cover;
   flex-shrink: 0;
 
@@ -35,7 +47,32 @@
   color: #111111;
 }
 
-.profileCardDetail p {
+.profileCardDetail p,
+.distanceSection p {
   font-weight: 400;
   color: #707070;
+}
+
+.distanceSection {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+}
+
+.statisticsCard {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+
+    padding: 20px;
+
+    border-radius: 10px;
+    background-color: #0B23F4;
+}
+
+.statisticsCard p {
+  color: white;
+  font-size: 22px;
+  font-weight: 500;
 }

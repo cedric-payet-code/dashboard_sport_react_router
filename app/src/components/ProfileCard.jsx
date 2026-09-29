@@ -1,7 +1,8 @@
 import { useUserInfo } from "../hooks/useUserInfo";
 import styles from "./ProfileCard.module.css"
+import achievement from '../assets/achievement.svg'
 
-export default function ProfileCard() {
+export default function ProfileCard({ showTotalDistance = false }) {
     const { userInfo, loading, error } = useUserInfo();
 
     if (loading) return <p>Chargement...</p>;
@@ -17,12 +18,26 @@ export default function ProfileCard() {
     });
 
     return (
-        <div className={styles.profileCard}>
-            <img src={profile.profilePicture}></img>
-            <div className={styles.profileCardDetail}>
-                <h1>{profile.firstName} {profile.lastName}</h1>
-                <p>Membre depuis le {createdAtFormatted}</p>
+        <div className={`${styles.profileCard} ${showTotalDistance ? styles.withTotalDistance : ""}`}>
+            <div className={styles.profilSection}>
+                <img src={profile.profilePicture}></img>
+                <div className={styles.profileCardDetail}>
+                    <h1>{profile.firstName} {profile.lastName}</h1>
+                    <p>Membre depuis le {createdAtFormatted}</p>
+                </div>
             </div>
+
+            {showTotalDistance && (
+                <div className={styles.distanceSection}>
+                    <p>Distance totale parcourue</p>
+                    <div className={styles.statisticsCard}>
+                        <img src={achievement}></img>
+                        <p>
+                            {statistics.totalDistance} km
+                        </p>
+                    </div>
+                </div>
+            )}
         </div>
     );
 }
