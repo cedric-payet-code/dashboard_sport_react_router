@@ -1,0 +1,16 @@
+.dashboardPage h2 {
+    font-weight: 500;
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+.graphicsSection {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.graphicsSection > * {
+  flex: 1;
+  min-width: 0;
+}
