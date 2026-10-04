@@ -1,0 +1,33 @@
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 40px 100px;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.header nav {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    background-color: white;
+    padding: 10px 40px;
+    border-radius: 40px;
+
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.header span {
+    border: solid #0B23F4 1px;
+}
+
+.header .link:hover {
+    color: #0B23F4;
+}
+
+.header button {
+    color: #0B23F4;
+}

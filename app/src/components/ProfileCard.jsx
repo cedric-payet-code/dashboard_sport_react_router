@@ -20,7 +20,9 @@ export default function ProfileCard({ showTotalDistance = false }) {
     return (
         <div className={`${styles.profileCard} ${showTotalDistance ? styles.withTotalDistance : ""}`}>
             <div className={styles.profilSection}>
-                <img src={profile.profilePicture}></img>
+                <div className={styles.photoWrapper}>
+                    <img src={profile.profilePicture}></img>
+                </div>
                 <div className={styles.profileCardDetail}>
                     <h1>{profile.firstName} {profile.lastName}</h1>
                     <p>Membre depuis le {createdAtFormatted}</p>

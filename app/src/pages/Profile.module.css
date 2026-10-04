@@ -5,13 +5,15 @@
 }
 
 .myProfile {
-    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
     border-radius: 10px;
     background: white;
+    padding: 40px 30px 50px 30px;
 }
 
 .myProfile hr {
-    margin: 20px 0;
     background-color: #E7E7E7;
     color: transparent;
 }
@@ -25,18 +27,28 @@
     width: 50%;
 }
 
+.myStatistics {
+    margin-bottom: 15px;
+}
+
 .myProfile h2,
 .myStatistics h2 {
-  font-size: 22px;
-  font-weight: 500;
+    font-size: 22px;
+    font-weight: 500;
 
-  color: #111111;
+    color: #111111;
 }
 
 .myProfile p,
 .myStatistics p {
-  font-weight: 500;
-  color: #707070;
+    font-weight: 500;
+    color: #707070;
+}
+
+.myStatistics p {
+    font-size: 14px;
+    font-weight: 400;
+    color: #707070;
 }
 
 .statisticsCards {
