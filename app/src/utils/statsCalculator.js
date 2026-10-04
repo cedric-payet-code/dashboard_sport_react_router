@@ -7,7 +7,7 @@ export function calculateRestDays(createdAt, sessions) {
   const startDate = new Date(createdAt);
   const today = new Date();
 
-  const totalDays = Math.floor((today - startDate) / (1000 * 60 * 60 * 24));
+  const totalDays = Math.floor((today - startDate) / (1000 * 60 * 60 * 24)); //Pourquoi x 1000
 
   const activeDays = new Set(sessions.map(session => session.date)).size;
 

@@ -18,7 +18,9 @@ export function useFetchUserInfo(token, isAuthenticated) {
       setError(null);
       try {
         const userInfoData = await getUserInfo(token);
-        const userActivityData = await getUserActivity(userInfoData.profile.createdAt, new Date(), token);
+        const userActivityData = await getUserActivity(userInfoData.profile.createdAt, new Date(), token); //faire les deux requêtes en même temps
+
+        // const [userInfoData, userActivityData] = await Promise.all([getUserInfo(token),  getUserActivity(userInfoData.profile.createdAt, new Date(), token)])
 
         const totalCaloriesBurned = calculateTotalCaloriesBurned(userActivityData);
         const restDays = calculateRestDays(userInfoData.profile.createdAt, userActivityData);
