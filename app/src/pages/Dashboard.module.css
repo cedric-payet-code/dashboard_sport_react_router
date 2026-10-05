@@ -1,3 +1,9 @@
+.dashboardPage {
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+}
+
 .dashboardPage h2 {
     font-weight: 500;
     font-size: 22px;
