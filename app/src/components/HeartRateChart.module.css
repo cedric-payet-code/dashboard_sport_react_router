@@ -3,18 +3,18 @@
   flex-direction: column;
   min-width: 0;
   padding: 30px;
-  width: 45%;
+  width: 55%;
 
   border-radius: 10px;
   background: white;
 }
 
-.card :global(.recharts-bar-rectangle path) {
-  transition: fill 0.3s ease;
+.card :global(.recharts-line-curve) {
+  transition: stroke 0.3s ease;
 }
 
-.card:hover :global(.recharts-bar-rectangle path) {
-  fill: #0B23F4;
+.card:hover :global(.recharts-line-curve) {
+  stroke: #0B23F4;
 }
 
 .header {
@@ -28,7 +28,7 @@
 .average {
   font-size: 22px;
   font-weight: 500;
-  color: #0B23F4;
+  color: #F4320B;
 }
 
 .navigation {
@@ -69,25 +69,4 @@
   margin: 6px 0 20px;
   font-size: 12px;
   color: #707070;
-}
-
-.tooltip {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  padding: 14px 16px;
-
-  border-radius: 10px;
-  background: #111111;
-  color: white;
-}
-
-.tooltipDates {
-  font-size: 12px;
-  color: #E7E7E7;
-}
-
-.tooltipValue {
-  font-size: 16px;
-  font-weight: 500;
 }

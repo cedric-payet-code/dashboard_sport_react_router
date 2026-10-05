@@ -13,7 +13,8 @@
 .graphicsSection {
   display: flex;
   flex-direction: row;
-  gap: 20px;
+  justify-content: space-between;
+  gap: 30px;
 }
 
 /* .graphicsSection > * {
