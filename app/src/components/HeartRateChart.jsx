@@ -82,10 +82,8 @@ export default function HeartRateChart() {
           <Legend
             align="left"
             verticalAlign="bottom"
-            iconType="circle"
-            iconSize={8}
-            wrapperStyle={{ fontSize: 12, color: "#707070", paddingTop: 10, marginLeft: 40 }}
-            formatter={value => <span style={{ color: "#707070" }}>{value}</span>}
+            wrapperStyle={{ paddingTop: 10, marginLeft: 40 }}
+            content={<HeartRateLegend />}
           />
           <Bar dataKey="min" name="Min" fill="#FCC1B6" barSize={14} radius={[7, 7, 7, 7]} />
           <Bar dataKey="max" name="Max BPM" fill="#F4320B" barSize={14} radius={[7, 7, 7, 7]} />
@@ -96,13 +94,37 @@ export default function HeartRateChart() {
             stroke="#E3E6FF"
             strokeWidth={3}
             dot={{ r: 3, fill: "#0B23F4", stroke: "none" }}
-            legendType="circle"
             activeDot={false}
             connectNulls
           />
         </ComposedChart>
       </ResponsiveContainer>
     </div>
+  );
+}
+
+function HeartRateLegend({ payload }) {
+  if (!payload?.length) return null;
+
+  return (
+    <ul className={styles.legend}>
+      {payload.map(entry => (
+        <li key={entry.dataKey} className={styles.legendItem}>
+          {entry.type === "line" ? (
+            // Point bleu traversé par un trait, comme la courbe du graphique
+            <svg width="16" height="8" viewBox="0 0 16 8" aria-hidden="true">
+              <line x1="0" y1="4" x2="16" y2="4" stroke="#B6BDFC" strokeWidth="1.5" />
+              <circle cx="8" cy="4" r="3.5" fill="#0B23F4" />
+            </svg>
+          ) : (
+            <svg width="8" height="8" viewBox="0 0 8 8" aria-hidden="true">
+              <circle cx="4" cy="4" r="4" fill={entry.color} />
+            </svg>
+          )}
+          {entry.value}
+        </li>
+      ))}
+    </ul>
   );
 }
 

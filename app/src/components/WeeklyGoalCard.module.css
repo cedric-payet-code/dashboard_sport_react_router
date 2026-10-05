@@ -1,0 +1,68 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 30px 40px;
+  width: 45%;
+
+  border-radius: 10px;
+  background: white;
+}
+
+.goal {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin: 0;
+}
+
+.count {
+  font-size: 32px;
+  font-weight: 500;
+  color: #0B23F4;
+}
+
+.target {
+  font-size: 18px;
+  font-weight: 500;
+  color: #b6bdfc;
+}
+
+.subtitle {
+  margin: 10px 0 0;
+  font-size: 16px;
+  color: #707070;
+}
+
+.chart {
+  position: relative;
+  height: 260px;
+  margin-top: 30px;
+}
+
+/* Étiquettes fixes autour du donut (centre du graphique = 50% / 130px) */
+.label {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: #707070;
+  white-space: nowrap;
+}
+
+.remaining {
+  left: calc(50% + 60px);
+  top: 20px;
+}
+
+.completed {
+  right: calc(50% + 105px);
+  top: 175px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
