@@ -1,0 +1,93 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 30px;
+  width: 40%;
+
+  border-radius: 10px;
+  background: white;
+}
+
+.card :global(.recharts-bar-rectangle path) {
+  transition: fill 0.3s ease;
+}
+
+.card:hover :global(.recharts-bar-rectangle path) {
+  fill: #0B23F4;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.average {
+  font-size: 22px;
+  font-weight: 500;
+  color: #0B23F4;
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.range {
+  font-size: 12px;
+  color: #111111;
+  white-space: nowrap;
+}
+
+.navButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  padding: 0 0 2px;
+
+  border: 1px solid #707070;
+  border-radius: 10px;
+  background: white;
+  color: #111111;
+  font-size: 14px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.navButton:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.subtitle {
+  margin: 6px 0 20px;
+  font-size: 12px;
+  color: #707070;
+}
+
+.tooltip {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 14px 16px;
+
+  border-radius: 10px;
+  background: #111111;
+  color: white;
+}
+
+.tooltipDates {
+  font-size: 12px;
+  color: #E7E7E7;
+}
+
+.tooltipValue {
+  font-size: 16px;
+  font-weight: 500;
+}

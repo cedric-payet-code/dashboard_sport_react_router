@@ -14,7 +14,7 @@ export default function Dashboard() {
       <div className={styles.statisticsSection}>
         <h2>Vos dernières performances</h2>
         <div className={styles.graphicsSection}>
-          <DistanceChart/>
+          <DistanceChart className={styles.test}/>
           <HeartRateChart/>
         </div>
       </div>
