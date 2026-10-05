@@ -10,6 +10,7 @@ export function useFetchUserInfo(token, isAuthenticated) {
   useEffect(() => {
     if (!isAuthenticated) {
       setUserInfo(null);
+      setError(null);
       return;
     }
 

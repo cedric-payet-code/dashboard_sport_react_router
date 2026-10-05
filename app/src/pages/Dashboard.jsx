@@ -5,8 +5,16 @@ import DistanceChart from "../components/DistanceChart";
 import styles from "./Dashboard.module.css"
 import HeartRateChart from "../components/HeartRateChart";
 import WeeklyGoalCard from "../components/WeeklyGoalCard";
+import WeeklyStats from "../components/WeeklyStats";
+import { getCurrentWeekRange } from "../utils/activityAgregator";
+
+// "2025-06-23" -> "23/06/2025"
+function formatDate(isoDate) {
+  return isoDate.split("-").reverse().join("/");
+}
 
 export default function Dashboard() {
+  const currentWeek = getCurrentWeekRange();
 
   return (
     <div className={styles.dashboardPage}>
@@ -20,8 +28,12 @@ export default function Dashboard() {
       </div>
       <div className={styles.statisticsSection}>
         <h2>Cette semaine</h2>
+        <p className={styles.weekRange}>
+          Du {formatDate(currentWeek.start)} au {formatDate(currentWeek.end)}
+        </p>
         <div className={styles.graphicsSection}>
           <WeeklyGoalCard/>
+          <WeeklyStats/>
         </div>
       </div>
     </div>

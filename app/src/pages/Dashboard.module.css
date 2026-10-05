@@ -10,6 +10,12 @@
     margin-bottom: 20px;
 }
 
+.weekRange {
+  margin: -10px 0 30px;
+  font-size: 14px;
+  color: #707070;
+}
+
 .graphicsSection {
   display: flex;
   flex-direction: row;

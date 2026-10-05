@@ -1,0 +1,55 @@
+.stats {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+  gap: 20px;
+}
+
+.card {
+  padding: 25px 30px;
+
+  border-radius: 10px;
+  background: white;
+}
+
+.title {
+  margin: 0 0 20px;
+  font-size: 14px;
+  color: #707070;
+}
+
+.value {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin: 0;
+}
+
+.durationValue,
+.distanceValue {
+  font-size: 26px;
+  font-weight: 500;
+}
+
+.durationUnit,
+.distanceUnit {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.durationValue {
+  color: #0B23F4;
+}
+
+.durationUnit {
+  color: #b6bdfc;
+}
+
+.distanceValue {
+  color: #F4320B;
+}
+
+.distanceUnit {
+  color: #FBA08E;
+}
