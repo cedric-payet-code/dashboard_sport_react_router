@@ -3,6 +3,9 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
 import { login as loginApi } from "../services/api";
+import logo from "../assets/logo.svg";
+import backgroundPicture from "../assets/background-picture.svg";
+import styles from "./Login.module.css";
 
 export default function Login() {
   const [username, setUsername] = useState("");
@@ -25,22 +28,60 @@ export default function Login() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h1>Connexion</h1>
-      {error && <p style={{ color: "red" }}>{error}</p>}
-      <input
-        type="text"
-        placeholder="Nom d'utilisateur"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-      />
-      <input
-        type="password"
-        placeholder="Mot de passe"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <button type="submit">Se connecter</button>
-    </form>
+    <main className={styles.page}>
+      <section className={styles.left}>
+        <img src={logo} alt="SportSee" className={styles.logo} />
+
+        <form onSubmit={handleSubmit} className={styles.card}>
+          <h1 className={styles.title}>
+            Transformez
+            <br />
+            vos stats en résultats
+          </h1>
+          <h2 className={styles.subtitle}>Se connecter</h2>
+
+          {error && <p className={styles.error}>{error}</p>}
+
+          <label className={styles.field}>
+            Adresse email
+            <input
+              type="text"
+              className={styles.input}
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+            />
+          </label>
+
+          <label className={styles.field}>
+            Mot de passe
+            <input
+              type="password"
+              className={styles.input}
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </label>
+
+          <button type="submit" className={styles.button}>
+            Se connecter
+          </button>
+
+          <a href="#" className={styles.forgot}>
+            Mot de passe oublié ?
+          </a>
+        </form>
+      </section>
+
+      <section
+        className={styles.right}
+        style={{ backgroundImage: `url(${backgroundPicture})` }}
+      >
+        <p className={styles.tagline}>
+          Analysez vos performances en un clin d’œil,
+          <br />
+          suivez vos progrès et atteignez vos objectifs.
+        </p>
+      </section>
+    </main>
   );
 }
