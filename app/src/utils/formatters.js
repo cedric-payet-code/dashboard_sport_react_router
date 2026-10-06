@@ -5,7 +5,12 @@ export function formatHeight(heightInCm) {
 }
 
 export function formatTotalDuration(totalDurationInMin) {
-  const hours = Math.floor(totalDurationInMin / 100);
-  const minutes = String(totalDurationInMin % 60);
+  const hours = Math.floor(totalDurationInMin / 60);
+  const minutes = totalDurationInMin % 60;
   return { hours, minutes: String(minutes).padStart(2, "0") };
+}
+
+export function formatGender(gender) {
+  const genders = { female: "Femme", male: "Homme" };
+  return genders[gender] ?? "Non renseigné";
 }
