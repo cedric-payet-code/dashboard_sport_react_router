@@ -5,6 +5,7 @@ export const mockUserInfo = {
     lastName: "Martin",
     createdAt: "2025-01-01",
     age: 32,
+    gender: "female",
     weight: 60,
     height: 165,
     profilePicture: "http://localhost:8000/images/sophie.jpg"

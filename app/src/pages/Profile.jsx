@@ -1,6 +1,6 @@
 import ProfileCard from "../components/ProfileCard";
 import { useUserInfo } from "../hooks/useUserInfo";
-import { formatHeight, formatTotalDuration } from "../utils/formatters";
+import { formatGender, formatHeight, formatTotalDuration } from "../utils/formatters";
 import styles from "./Profile.module.css"
 
 export default function Dashboard() {
@@ -27,7 +27,7 @@ export default function Dashboard() {
           <h2>Votre profil</h2>
           <hr/>
           <p>Âge : {profile.age}</p>
-          <p>Genre : ?! ?! ?!</p>
+          <p>Genre : {formatGender(profile.gender)}</p>
           <p>Taille : {formatHeight(profile.height)}</p>
           <p>Poids : {profile.weight}kg</p>
         </div>
