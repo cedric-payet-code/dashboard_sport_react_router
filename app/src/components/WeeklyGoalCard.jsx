@@ -1,15 +1,18 @@
 import { useState, useEffect } from "react";
 import { PieChart, Pie, Cell, ResponsiveContainer } from "recharts";
 import { useUserActivity } from "../hooks/useUserActivity";
+import { useUserInfo } from "../hooks/useUserInfo";
 import { getCurrentWeekRange } from "../utils/activityAgregator";
 import styles from "./WeeklyGoalCard.module.css";
 
-const WEEKLY_GOAL = 6; // à remplacer si l'API fournit cette valeur un jour
+const DEFAULT_WEEKLY_GOAL = 6; // utilisé si l'utilisateur n'a pas d'objectif dans l'API
 
 const COLORS = ["#0B23F4", "#b6bdfc"];
 
 export default function WeeklyGoalCard() {
   const { fetchActivity } = useUserActivity();
+  const { userInfo } = useUserInfo();
+  const weeklyGoal = userInfo?.weeklyGoal ?? DEFAULT_WEEKLY_GOAL;
   const [completed, setCompleted] = useState(0);
 
   useEffect(() => {
@@ -21,7 +24,7 @@ export default function WeeklyGoalCard() {
     loadData();
   }, []);
 
-  const remaining = Math.max(WEEKLY_GOAL - completed, 0);
+  const remaining = Math.max(weeklyGoal - completed, 0);
   const data = [
     { name: "Réalisées", value: completed },
     { name: "Restantes", value: remaining }
@@ -29,14 +32,14 @@ export default function WeeklyGoalCard() {
 
   // Rotation pour centrer la part "réalisées" à gauche (200°, face à sa légende) ;
   // la part "restants" se retrouve alors à droite
-  const completedAngle = (360 * Math.min(completed, WEEKLY_GOAL)) / WEEKLY_GOAL;
+  const completedAngle = (360 * Math.min(completed, weeklyGoal)) / weeklyGoal;
   const startAngle = 200 + completedAngle / 2;
 
   return (
     <div className={styles.card}>
       <p className={styles.goal}>
         <span className={styles.count}>x{completed}</span>
-        <span className={styles.target}>sur objectif de {WEEKLY_GOAL}</span>
+        <span className={styles.target}>sur objectif de {weeklyGoal}</span>
       </p>
       <p className={styles.subtitle}>Courses hebdomadaire réalisées</p>
 
