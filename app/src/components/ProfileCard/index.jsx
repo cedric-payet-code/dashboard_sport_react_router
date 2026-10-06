@@ -1,6 +1,6 @@
-import { useUserInfo } from "../hooks/useUserInfo";
-import styles from "./ProfileCard.module.css"
-import achievement from '../assets/achievement.svg'
+import { useUserInfo } from "../../hooks/useUserInfo";
+import styles from "./style.module.css"
+import achievement from '../../assets/achievement.svg'
 
 export default function ProfileCard({ showTotalDistance = false }) {
     const { userInfo, loading, error } = useUserInfo();

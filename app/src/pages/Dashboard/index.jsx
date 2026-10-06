@@ -1,12 +1,12 @@
-import ProfileCard from "../components/ProfileCard";
-import DistanceChart from "../components/DistanceChart";
-// import { useUserInfo } from "../hooks/useUserInfo";
-// import { formatHeight, formatTotalDuration } from "../utils/formatters";
-import styles from "./Dashboard.module.css"
-import HeartRateChart from "../components/HeartRateChart";
-import WeeklyGoalCard from "../components/WeeklyGoalCard";
-import WeeklyStats from "../components/WeeklyStats";
-import { getCurrentWeekRange } from "../utils/activityAgregator";
+import ProfileCard from "../../components/ProfileCard";
+import DistanceChart from "../../components/DistanceChart";
+// import { useUserInfo } from "../../hooks/useUserInfo";
+// import { formatHeight, formatTotalDuration } from "../../utils/formatters";
+import styles from "./style.module.css"
+import HeartRateChart from "../../components/HeartRateChart";
+import WeeklyGoalCard from "../../components/WeeklyGoalCard";
+import WeeklyStats from "../../components/WeeklyStats";
+import { getCurrentWeekRange } from "../../utils/activityAgregator";
 
 // "2025-06-23" -> "23/06/2025"
 function formatDate(isoDate) {

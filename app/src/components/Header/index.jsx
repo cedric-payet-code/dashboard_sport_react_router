@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
-import { useAuth } from "../hooks/useAuth";
-import styles from "./Header.module.css";
-import logo from "../assets/logo.svg";
+import { useAuth } from "../../hooks/useAuth";
+import styles from "./style.module.css";
+import logo from "../../assets/logo.svg";
 
 export default function Header() {
   const { logout } = useAuth();

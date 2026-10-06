@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import { PieChart, Pie, Cell, ResponsiveContainer } from "recharts";
-import { useUserActivity } from "../hooks/useUserActivity";
-import { useUserInfo } from "../hooks/useUserInfo";
-import { getCurrentWeekRange } from "../utils/activityAgregator";
-import styles from "./WeeklyGoalCard.module.css";
+import { useUserActivity } from "../../hooks/useUserActivity";
+import { useUserInfo } from "../../hooks/useUserInfo";
+import { getCurrentWeekRange } from "../../utils/activityAgregator";
+import styles from "./style.module.css";
 
 const DEFAULT_WEEKLY_GOAL = 6; // utilisé si l'utilisateur n'a pas d'objectif dans l'API
 

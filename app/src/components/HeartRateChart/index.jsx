@@ -1,9 +1,9 @@
 // app/src/components/HeartRateChart.jsx
 import { useState, useEffect } from "react";
 import { ComposedChart, Bar, Line, XAxis, YAxis, CartesianGrid, Legend, ResponsiveContainer } from "recharts";
-import { useUserActivity } from "../hooks/useUserActivity";
-import { getWeekRange, mapSessionsToWeekDays } from "../utils/activityAgregator";
-import styles from "./HeartRateChart.module.css";
+import { useUserActivity } from "../../hooks/useUserActivity";
+import { getWeekRange, mapSessionsToWeekDays } from "../../utils/activityAgregator";
+import styles from "./style.module.css";
 
 export default function HeartRateChart() {
   const { fetchActivity } = useUserActivity();

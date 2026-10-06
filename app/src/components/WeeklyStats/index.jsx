@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import { useUserActivity } from "../hooks/useUserActivity";
-import { getCurrentWeekRange } from "../utils/activityAgregator";
-import styles from "./WeeklyStats.module.css";
+import { useUserActivity } from "../../hooks/useUserActivity";
+import { getCurrentWeekRange } from "../../utils/activityAgregator";
+import styles from "./style.module.css";
 
 export default function WeeklyStats() {
   const { fetchActivity } = useUserActivity();

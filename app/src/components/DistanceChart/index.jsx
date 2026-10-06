@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from "recharts";
-import { useUserActivity } from "../hooks/useUserActivity";
-import { getFourWeeksRange, aggregateByWeek } from "../utils/activityAgregator";
-import styles from "./DistanceChart.module.css";
+import { useUserActivity } from "../../hooks/useUserActivity";
+import { getFourWeeksRange, aggregateByWeek } from "../../utils/activityAgregator";
+import styles from "./style.module.css";
 
 export default function DistanceChart() {
   const { fetchActivity } = useUserActivity();

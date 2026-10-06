@@ -1,7 +1,7 @@
-import ProfileCard from "../components/ProfileCard";
-import { useUserInfo } from "../hooks/useUserInfo";
-import { formatGender, formatHeight, formatTotalDuration } from "../utils/formatters";
-import styles from "./Profile.module.css"
+import ProfileCard from "../../components/ProfileCard";
+import { useUserInfo } from "../../hooks/useUserInfo";
+import { formatGender, formatHeight, formatTotalDuration } from "../../utils/formatters";
+import styles from "./style.module.css"
 
 export default function Dashboard() {
   const { userInfo, loading, error } = useUserInfo();

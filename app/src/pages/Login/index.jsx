@@ -1,11 +1,11 @@
-// app/src/pages/Login.jsx
+// app/src/pages/Login/index.jsx
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../hooks/useAuth";
-import { login as loginApi } from "../services/api";
-import logo from "../assets/logo.svg";
-import backgroundPicture from "../assets/background-picture.svg";
-import styles from "./Login.module.css";
+import { useAuth } from "../../hooks/useAuth";
+import { login as loginApi } from "../../services/api";
+import logo from "../../assets/logo.svg";
+import backgroundPicture from "../../assets/background-picture.svg";
+import styles from "./style.module.css";
 
 export default function Login() {
   const [username, setUsername] = useState("");

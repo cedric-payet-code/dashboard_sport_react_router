@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import logo from "../assets/logo.svg";
-import styles from "./NotFound.module.css";
+import logo from "../../assets/logo.svg";
+import styles from "./style.module.css";
 
 export default function NotFound() {
   return (
