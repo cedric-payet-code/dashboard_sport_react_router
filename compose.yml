@@ -8,6 +8,9 @@ services:
     volumes:
       - ./app:/app
       - /app/node_modules
+    # Installe les dépendances manquantes à chaque démarrage (le volume node_modules
+    # ci-dessus est conservé entre deux builds et ne voit pas les nouveaux paquets)
+    command: sh -c "yarn install && yarn dev --host 0.0.0.0"
 
   api:
     container_name: api
