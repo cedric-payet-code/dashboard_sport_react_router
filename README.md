@@ -4,7 +4,7 @@ Tableau de bord sportif en React permettant à un utilisateur de suivre ses cour
 
 Le projet se compose de deux parties :
 
-- **le front** (ce dépôt) : React + Vite + React Router + Recharts ;
+- **le front** (ce dépôt) : React + [React Router](https://reactrouter.com/) en mode framework (initialisé avec `create-react-router`, configuré en mode SPA) + Recharts ;
 - **l'API** : [P6JS](https://github.com/cedric-payet-code/P6JS), une micro-API Node/Express qui fournit les données des utilisateurs.
 
 ## Prérequis
@@ -77,7 +77,7 @@ Pour travailler sans l'API, passez `VITE_USE_MOCK=true` dans `app/.env` puis red
 podman compose restart react
 ```
 
-Les données viennent alors de [`app/src/mocks/mockData.js`](app/src/mocks/mockData.js). Seul le compte `sophiemartin` / `password123` est accepté.
+Les données viennent alors de [`app/app/mocks/mockData.js`](app/app/mocks/mockData.js). Seul le compte `sophiemartin` / `password123` est accepté.
 
 ## Commandes utiles
 
@@ -92,31 +92,49 @@ podman compose exec react yarn add <paquet>
 podman compose logs -f react
 podman compose logs -f api
 
-# Repartir d'un node_modules propre
+# Repartir d'un node_modules propre (à faire après un changement de dépendances)
 podman compose up -d --build --renew-anon-volumes
+
+# Vérifier le code / générer la version de production (dans build/client)
+podman compose exec react yarn lint
+podman compose exec react yarn build
 ```
+
+En mode SPA, `yarn build` produit un site statique dans `app/build/client` : il peut être servi par n'importe quel serveur web, à condition de renvoyer `index.html` pour toutes les URL.
 
 ## Structure du front
 
+Le projet suit la structure générée par `create-react-router` :
+
 ```
-app/src/
-├── assets/       Images et logos
-├── components/   Composants réutilisables (un dossier par composant : index.jsx + style.module.css)
-├── context/      Contextes React (authentification, infos et activité utilisateur)
-├── hooks/        Hooks personnalisés
-├── mocks/        Données simulées (mode mock)
-├── pages/        Pages de l'application (Login, Profile, Dashboard, NotFound)
-├── routes/       Configuration de React Router
-├── services/     Appels à l'API
-└── utils/        Fonctions utilitaires (formatage, calculs, dates)
+app/
+├── react-router.config.js   Configuration de React Router (ssr: false → mode SPA)
+├── vite.config.js           Configuration de Vite (plugin React Router)
+├── public/                  Fichiers statiques (favicon)
+└── app/                     Code de l'application
+    ├── root.jsx             Route racine : document HTML, providers des contextes, fallback de chargement, erreurs
+    ├── routes.js            Déclaration des routes
+    ├── app.css              Styles globaux
+    ├── routes/              Modules de route (une page = un fichier .jsx + son .module.css)
+    ├── components/          Composants réutilisables (un dossier par composant : index.jsx + style.module.css)
+    ├── context/             Contextes React (authentification, infos et activité utilisateur)
+    ├── hooks/               Hooks personnalisés
+    ├── mocks/               Données simulées (mode mock)
+    ├── services/            Appels à l'API
+    ├── utils/               Fonctions utilitaires (formatage, calculs, dates, cookie du token)
+    └── assets/              Images et logos
 ```
 
 ## Routes
 
-| Route        | Page                                  | Accès     |
-| ------------ | ------------------------------------- | --------- |
-| `/login`     | Connexion                             | Public    |
-| `/profil`    | Profil et statistiques globales       | Connecté  |
-| `/dashboard` | Graphiques d'activité                 | Connecté  |
-| `/`          | Redirige vers `/profil`               | —         |
-| `*`          | Page 404                              | Public    |
+Déclarées dans [`app/app/routes.js`](app/app/routes.js) :
+
+| Route        | Module                       | Page                            | Accès    |
+| ------------ | ---------------------------- | ------------------------------- | -------- |
+| `/login`     | `routes/login.jsx`           | Connexion                       | Public (redirige vers `/profil` si déjà connecté) |
+| `/profil`    | `routes/profile.jsx`         | Profil et statistiques globales | Connecté |
+| `/dashboard` | `routes/dashboard.jsx`       | Graphiques d'activité           | Connecté |
+| `/`          | `routes/home.jsx`            | Redirige vers `/profil`         | —        |
+| `*`          | `routes/not-found.jsx`       | Page 404                        | Public   |
+
+Les routes « Connecté » sont regroupées sous la route layout [`routes/protected-layout.jsx`](app/app/routes/protected-layout.jsx) : son `clientLoader` vérifie la présence du token avant d'afficher la page et redirige vers `/login` sinon. Ce layout affiche aussi le header et le footer.

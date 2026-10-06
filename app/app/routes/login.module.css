@@ -1,0 +1,162 @@
+.page {
+  display: flex;
+  flex-direction: row;
+  min-height: 100vh;
+  background-color: #F2F3FF;
+}
+
+/* Colonne gauche : logo + formulaire */
+.left {
+  display: flex;
+  flex-direction: column;
+  width: 44%;
+  padding: 50px 100px 50px 85px;
+}
+
+.logo {
+  width: 145px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  margin: auto 0;
+  padding: 40px 36px 80px;
+  width: 100%;
+  max-width: 365px;
+
+  border-radius: 20px;
+  background: white;
+}
+
+.title {
+  margin-bottom: 40px;
+
+  font-size: 26px;
+  font-weight: 500;
+  line-height: 1.25;
+  color: #0B23F4;
+}
+
+.subtitle {
+  margin-bottom: 20px;
+
+  font-size: 20px;
+  font-weight: 500;
+  color: #111111;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 20px;
+
+  font-size: 12px;
+  font-weight: 400;
+  color: #707070;
+}
+
+.input {
+  height: 52px;
+  padding: 0 14px;
+
+  border: 1px solid #C9C9C9;
+  border-radius: 10px;
+  font-size: 14px;
+  color: #111111;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.input:focus {
+  border-color: #0B23F4;
+}
+
+.button {
+  height: 46px;
+  margin-top: 16px;
+  margin-bottom: 36px;
+
+  border: none;
+  border-radius: 10px;
+  background-color: #0B23F4;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.button:hover {
+  background-color: #5465F7;
+}
+
+.forgot {
+  font-size: 14px;
+  color: #111111;
+  text-decoration: none;
+}
+
+.forgot:hover {
+  color: #0B23F4;
+}
+
+.error {
+  margin-bottom: 16px;
+  font-size: 14px;
+  color: #E60000;
+}
+
+/* Colonne droite : image */
+.right {
+  position: relative;
+  flex: 1;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.tagline {
+  position: absolute;
+  right: 20px;
+  bottom: 25px;
+  padding: 10px 16px;
+
+  border-radius: 30px;
+  background: white;
+  font-size: 12px;
+  line-height: 1.4;
+  text-align: center;
+  color: #0B23F4;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .page {
+    flex-direction: column;
+  }
+
+  .left {
+    width: 100%;
+    padding: 30px 16px;
+    align-items: center;
+  }
+
+  .logo {
+    align-self: flex-start;
+  }
+
+  .card {
+    margin: 40px 0;
+  }
+
+  .right {
+    min-height: 400px;
+  }
+}
+
+.button:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
