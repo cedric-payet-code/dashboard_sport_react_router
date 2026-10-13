@@ -1,6 +1,8 @@
-import { UserActivityContext } from "./UserActivityContext";
+import { createContext } from "react";
 import { useAuth } from "../hooks/useAuth";
 import { useFetchUserActivity } from "../hooks/useFetchUserActivity";
+
+export const UserActivityContext = createContext(null);
 
 export function UserActivityProvider({ children }) {
   const { token, logout } = useAuth();

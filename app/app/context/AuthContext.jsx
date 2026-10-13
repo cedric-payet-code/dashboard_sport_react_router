@@ -1,6 +1,7 @@
-import { useCallback, useMemo, useState } from "react";
-import { AuthContext } from "./AuthContext";
+import { createContext, useCallback, useMemo, useState } from "react";
 import { setToken, getToken, removeToken } from "../utils/auth";
+
+export const AuthContext = createContext(null);
 
 export function AuthProvider({ children }) {
   const [token, setTokenState] = useState(getToken() || null);

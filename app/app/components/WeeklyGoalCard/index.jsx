@@ -5,7 +5,7 @@ import { getCurrentWeekRange } from "../../utils/activityAgregator";
 import DataStatus from "../DataStatus";
 import styles from "./style.module.css";
 
-const DEFAULT_WEEKLY_GOAL = 6; // utilisé si l'utilisateur n'a pas d'objectif dans l'API
+const DEFAULT_WEEKLY_GOAL = 7; // utilisé si l'utilisateur n'a pas d'objectif dans l'API
 
 const COLORS = ["#0B23F4", "#b6bdfc"];
 

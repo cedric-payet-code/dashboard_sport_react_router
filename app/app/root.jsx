@@ -6,9 +6,9 @@ import {
   Scripts,
   ScrollRestoration
 } from "react-router";
-import { AuthProvider } from "./context/AuthProvider";
-import { UserInfoProvider } from "./context/UserInfoProvider";
-import { UserActivityProvider } from "./context/UserActivityProvider";
+import { AuthProvider } from "./context/AuthContext";
+import { UserInfoProvider } from "./context/UserInfoContext";
+import { UserActivityProvider } from "./context/UserActivityContext";
 import "./app.css";
 
 export const links = () => [
